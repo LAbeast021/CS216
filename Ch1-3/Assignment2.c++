@@ -1,65 +1,41 @@
-#include<iostream>
-#include<iomanip>
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include <sstream>
+
 using namespace std;
+
 int main(){
-/**
-* A string named movie Title is declared below
-*/
+
 string movieTitle;
+int no_of_adult_tickets,no_of_child_tickets;
+double gross, distributor_pay, net_profit;
+const int adult_ticket = 6 , child_ticket = 3;
+const double theater_rate = 0.20;
 
-/**
-* Two integer variable named adultTix and childTix
-* are declared below that stores the tickets sold for
-* adults and child respectively
-*/
-int adultTix,childTix;
+cout << " Please enter the name of the movie : ";
+getline (cin, movieTitle);
 
-/**
-* Prompting user to enter the name of the movie
-*/
-cout<<"Please enter the name of the movie: ";
-getline(cin,movieTitle);
+cout << " Please enter the number of Adult Tickets sold :  ";
+cin >> no_of_adult_tickets;
 
+cout << " Please enter the number of Child Tickets sold :  ";
+cin >> no_of_child_tickets;
 
-/**
-* Prompting user to enter adult tickets sold
-*/
-cout<<"How many ADULT tickets sold: ";
-cin>>adultTix;
+gross = (no_of_adult_tickets * adult_ticket) + (no_of_child_tickets*child_ticket);
+net_profit = gross * theater_rate;
+distributor_pay = gross - net_profit;
 
-/**
-* Prompting user to enter child tickets sold
-*/
-cout<<"How many CHILD tickets sold: ";
-cin>>childTix;
-
-/**
-* Three double variables are declared below
-*/
-double gross,distributor,net;
-
-/**
-* Calculating gross as per the 6$ per ticket for adults
-* and $3 for child
-*/
-gross = adultTix*6 + childTix*3;
-
-/**
-* Calculating net profit i.e 20% of gross
-*/
-net = (20.0/100.0)*gross;
-distributor = gross - net;
-
-
-cout << "Movie Name: " << movieTitle << endl;
-cout << "Adult Tickets Sold:" << setw(4) << adultTix << endl;
-cout << "Child Tickets Sold:" << setw(4) << childTix << endl;
+movieTitle = "\"" + movieTitle + "\"" ;
 cout << fixed << showpoint << setprecision(2);
-cout << "Gross Box Office Profit: $" << gross << endl;
-cout << "Amount Paid to Distributor: $" << distributor << endl;
-cout << "Net Box Office Profit: $" << net ;
-cout<<endl;
 
+cout << "Movie Name:  " << movieTitle << endl;
+cout << "Adult Tickets Sold:" << setw(4) << no_of_adult_tickets << endl;
+cout << "Child Tickets Sold:" << setw(4) << no_of_child_tickets << endl;
+cout << "Gross Box Office Profit: $" << gross << endl;
+cout << "Amount Paid to Distributor:  _$" << distributor_pay << endl;
+cout << "Net Box Office Profit: $" << net_profit << endl ;
+cout << "--------------------------------------------------------------" << endl;
 
 return 0;
 }
