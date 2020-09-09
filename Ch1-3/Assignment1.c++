@@ -1,53 +1,49 @@
 #include <iostream>
-
+#include <math.h>
 using namespace std;
 
-int main()
-{
-int totalHours=0,hours;
-double price,total=0;
-//reading hours for week 1
-cout<<"enter number of hours worked for week-1 : ";
-cin>>hours;
-//adding to total hours
-totalHours+=hours;
-//reading hours for week 2
-cout<<"enter number of hours worked for week-2 : ";
-cin>>hours;
-//adding to total hours
-totalHours+=hours;
-//reading hours for week 3
-cout<<"enter number of hours worked for week-3 : ";
-cin>>hours;
-//adding to total hours
-totalHours+=hours;
-//reading hours for week 4
-cout<<"enter number of hours worked for week-4 : ";
-cin>>hours;
-totalHours+=hours;
-//reading hours for week 5
-cout<<"enter number of hours worked for week-5 : ";
-cin>>hours;
-totalHours+=hours;
-//reading price per hous
-cout<<"Enter price per hour: ";
-cin>>price;
-//finding total income
-total=totalHours*price;
+int main(){
+    
+int total_hours = 0, hours;
+double pay_rate, total_income, total_saving_bonds;
+const double tax_rate = 0.14, clothes_accessories_rate = 0.10, school_supply_rate = 0.01, savings_bond_rate = 0.25;
+
+cout << " Please Enter your pay rate for each hour : $";
+cin >> pay_rate;
+
+cout << " Please Enter the number of hours you worked in week #1 : ";
+cin >> hours;
+total_hours += hours;
+
+cout << " Please Enter the number of hours you worked in week #2 : ";
+cin >> hours;
+total_hours += hours;
+
+cout << " Please Enter the number of hours you worked in week #3 : ";
+cin >> hours;
+total_hours += hours;
+
+cout << " Please Enter the number of hours you worked in week #4 : ";
+cin >> hours;
+total_hours += hours;
+
+cout << " Please Enter the number of hours you worked in week #5 : ";
+cin >> hours;
+total_hours += hours;
+
+total_income = total_hours * pay_rate;
   
-//printing total income
-cout<<"Total income before taxes : "<<total<<endl;
-//printing income afte taxes
-cout<<"Total income after taxes : "<<total-(total*0.14)<<endl;
-//print spends on cloth accessories
-cout<<"Total money spent on clothes accessories and buy school supplies : "<<(total*0.10)<<endl;
-cout<<"Total money spent to buy school supplies : "<<(total*0.01)<<endl;
-cout<<"the money you spend to buy savings bonds: "<<total*0.25<<endl;
-cout<<"The money your parents spend to buy additional savings bonds for you : "<<0.50<<"$"<<endl;
-  
-  
-  
-  
+cout << " Your Total income before taxes from your summer job  :  $" << total_income << endl;
+cout << " Your Total income after taxes from your summer job  : $" << total_income - (total_income * tax_rate) << endl;
+
+total_income = total_income - (total_income * tax_rate);
+
+cout << " Total money you spend on clothes and accessories :  $"<<(total_income * clothes_accessories_rate)<<endl;
+cout << " Total money you spend to buy school supplies : $" << (total_income * school_supply_rate) << endl;
+cout << " The money you spend to buy savings bonds: $"<< (total_income * savings_bond_rate) << endl;
+
+total_saving_bonds = floor(total_income * savings_bond_rate);
+cout << " The money your parents spend to buy additional savings bonds for you : $"<< (total_saving_bonds * 0.50)<< endl;
 
 return 0;
 }
