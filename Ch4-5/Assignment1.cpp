@@ -68,7 +68,7 @@ cout << "Total Price for all rooms : $" << total_cost << endl;
 cout << "Sales Tax amount : $" << tax << endl;
 cout << "Total Amount due : $" << final_bill << endl;
 
-cout << "-----------------------------------------------------------------" < <endl;
+cout << "-----------------------------------------------------------------" << endl;
 
 return 0;
 }
