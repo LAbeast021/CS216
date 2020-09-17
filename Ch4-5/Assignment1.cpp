@@ -1,82 +1,74 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
 
-//Constants to store discount percent
-const float discount_10=0.1;
-const float discount_20=0.2;
-const float discount_30=0.3;
-const float additional_discount=0.05;
+int main(){
 
-int main()
-{
+// __ named constants to store discounts Percentage  __ //
+const float discount_for_10_rooms = 0.10, discount_for_20_rooms = 0.20, discount_for_30_rooms = 0.30, additional_discount = 0.05;
 
-//Variables to store user input
-float rent,salesTax;
-int rooms,days;
+// __ named Variables to store user inputs __ //
+float rent , sales_tax;
+int number_of_rooms , number_of_days;
 
-//Variables to store processing items
-float roomCost=0;
-float totalDiscount=0;
-float totalCost=0;
-float tax=0;
-float finalBill=0;
+// __ names Variables to keep track of cost __ //
+float room_cost = 0, total_discount = 0, total_cost = 0, tax = 0, final_bill = 0;
 
-//User input
-cout<<"Enter the cost of renting one room: $";
-cin>>rent;
+// __ Getting User inputs __ //
+cout << " Please Enter the price for renting one room : $";
+cin >> rent;
 
-cout<<"Enter the number of rooms booked: ";
-cin>>rooms;
+cout << " Please Enter the number of Rooms booked : ";
+cin >> number_of_rooms;
 
-cout<<"Enter number of days the rooms are booked: ";
-cin>>days;
+cout << " Please Enter the  number of days you booked the room(s) : ";
+cin >> number_of_days;
 
-cout<<"Enter sales tax(%): ";
-cin>>salesTax;
+cout << " Please Enter the sales tax(%) : ";
+cin >> sales_tax;
 
-//Finding out the discount as per number of rooms booked.
-if(rooms>=30)
-   totalDiscount = discount_30;
+// __ Determining the Discount amount for number of rooms booked __ . //
+if(number_of_rooms >= 30){
+   total_discount = discount_for_30_rooms;
+}
+else if(number_of_rooms >= 20){
+   total_discount = discount_for_20_rooms;
+}
+else if(number_of_rooms >= 10){
+   total_discount = discount_for_10_rooms;
+}
+else{
+   total_discount = 0;
+}
 
-else if(rooms>=20)
-   totalDiscount = discount_20;
+// __ Determining if extra Discount applies or not . __ //
+if(number_of_days >= 3){
+    total_discount += additional_discount;
+}
 
-else if(rooms>=10)
-   totalDiscount = discount_10;
+// __ Calculating the cost per single room and including discount __ // 
+room_cost = rent - ( rent * total_discount);
 
-else
-   totalDiscount=0;
+// __ Calculating Total cost for all rooms based on the cost for one room and number of days and rooms __ //
+total_cost = room_cost * number_of_rooms * number_of_days;
 
-//Finding out if additional discount is applied or not.
-if(days>=3)
-totalDiscount += additional_discount;
+// __ Calculating the tax amount __ //
+tax = total_cost * (sales_tax/100);
 
-//Processing
+// __ Calculating the Final bill __ //
+final_bill = total_cost + tax;
 
-//Calculating the cost per single room
-roomCost = rent - rent*totalDiscount;
+// __ displaying the output __ //
+cout << "-----------------------------------------------------------------" << endl;
 
-//Total cost for all rooms
-totalCost = roomCost*rooms*days;
+cout << "The Price for renting one room per night : $" << room_cost << endl;
+cout << "The discount applied on each room : " << total_discount * 100 << "%" << endl;
+cout << "# of rooms booked : "<< number_of_rooms << endl;
+cout << "# of days rooms are booked for : " << number_of_days << endl;
+cout << "Total Price for all rooms : $" << total_cost << endl;
+cout << "Sales Tax amount : $" << tax << endl;
+cout << "Total Amount due : $" << final_bill << endl;
 
-//Finding out the tax
-tax = totalCost * (salesTax/100);
-
-//Final bill
-finalBill=totalCost+tax;
-
-//displaying the output
-cout<<endl<<endl<<endl;
-
-cout<<"The cost of renting one room: $"<<roomCost;
-cout<<"\nThe discount on each room: "<<totalDiscount<<"%";
-cout<<"\nNo. of rooms booked: "<<rooms;
-cout<<"\nNo. of days the rooms booked: "<<days;
-
-cout<<"\n\nTotal cost of the rooms: $"<<totalCost;
-cout<<"\nSales Tax : $"<<tax;
-cout<<"\nTotal Billing Amount : $"<<finalBill;
+cout << "-----------------------------------------------------------------" < <endl;
 
 return 0;
 }
