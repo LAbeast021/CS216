@@ -14,13 +14,13 @@ int number_of_rooms , number_of_days;
 float room_cost = 0, total_discount = 0, total_cost = 0, tax = 0, final_bill = 0;
 
 // __ Getting User inputs __ //
-cout << " Please Enter the price for renting one room : $";
+cout << " Please Enter the price for renting one room : $ ";
 cin >> rent;
 
 cout << " Please Enter the number of Rooms booked : ";
 cin >> number_of_rooms;
 
-cout << " Please Enter the  number of days you booked the room(s) : ";
+cout << " Please Enter the  number of days you booked the room(s) for : ";
 cin >> number_of_days;
 
 cout << " Please Enter the sales tax(%) : ";
@@ -61,7 +61,7 @@ final_bill = total_cost + tax;
 cout << "-----------------------------------------------------------------" << endl;
 
 cout << "The Price for renting one room per night : $" << room_cost << endl;
-cout << "The discount applied on each room : " << total_discount * 100 << "%" << endl;
+cout << "The discount applied on each room : " << total_discount * 100 << "% ($" << rent - room_cost << ")" << endl;
 cout << "# of rooms booked : "<< number_of_rooms << endl;
 cout << "# of days rooms are booked for : " << number_of_days << endl;
 cout << "Total Price for all rooms : $" << total_cost << endl;
