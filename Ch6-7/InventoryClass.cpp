@@ -1,3 +1,6 @@
+//  Kiarash Hesampour CS216 
+// This program uses classes to hold number, quantity, and cost of a item and if requested display the item or calculate and display the total cost for the items.
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
