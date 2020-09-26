@@ -1,3 +1,6 @@
+//  Kiarash Hesampour , CS216
+// This Program will calculate the cost of a patient ( service, medication ...) at a hospital base on the type of the patient (in-patient, out-patient)
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
