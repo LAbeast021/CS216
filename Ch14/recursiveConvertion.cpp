@@ -1,5 +1,5 @@
 //  Kiarash Hesampour CS216
-// this the recursive version of the sample function using a driver program 
+// this is  the recursive version of the sample function using a driver program 
 
 #include <iostream>
 #include <fstream>
