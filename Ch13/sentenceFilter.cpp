@@ -35,7 +35,7 @@ int main(){
     };  
 
     getline(infile,input_sentence);
-    while(!infile.fail() && !infile.eof()){
+    while(!infile.fail()){
         for(int i = 0 ; input_sentence[i] != '.' ; i++)
         if(isalpha(input_sentence[i]))
             if(i == 0)

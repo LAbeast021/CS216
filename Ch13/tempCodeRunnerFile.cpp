@@ -1,0 +1,1 @@
+!infile.fail() && !infile.eof()
