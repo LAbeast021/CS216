@@ -1,5 +1,5 @@
 //  Kiarash Hesampour CS216
-// This program will take an input file and will count how many of each letter in alphabet is in the text
+// This program will take two integer inputs and calculate the result of those two number multiplied together using a recursive function
 
 #include <iostream>
 #include <fstream>

@@ -1,4 +1,5 @@
 //  Kiarash Hesampour CS216
+// this the recursive version of the sample function using a driver program 
 
 #include <iostream>
 #include <fstream>
@@ -10,19 +11,26 @@ using namespace std;
 
 void sign(int);
 
-void main(){
-    int num;
-    //Inputting data
-    cout << "Enter number:";
-    cin >> num;
-    //Function call
-    sign(num);
+int main(){
+    int n;
+    cout << "Please Enter a Value for ' n ' : " ;
+    cin >> n;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+    }
+
+    sign(n);
 }
 
-//Function definition
 void sign(int n){
-    if(n > 0){
-        cout << "No Parking\n";
-        sign(n-1);
+    if(n <= 0){
+        return;
     }
-}//end main
+    else {
+        n -= 1;
+        cout << "No Parking\n";
+        sign(n);
+    }    
+}
