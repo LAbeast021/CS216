@@ -1,5 +1,5 @@
 //  Kiarash Hesampour CS216
-// 
+// this program rotate and output a vector of a generic type The first function performs a single circular left rotation on a vector, and the second prints out the vector passed to it as parameter
 
 #include <iostream>
 #include <fstream>
