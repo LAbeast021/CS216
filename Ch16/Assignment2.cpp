@@ -11,7 +11,7 @@
 #include <cmath>
 using namespace std;
 
-int squareRoot(int);
+int squareRootCalculator(int);
 
 int main() {
   int entered_number, entered_number_sqrt;
@@ -25,7 +25,7 @@ int main() {
     }
   
   try {
-    entered_number_sqrt = squareRoot(entered_number);
+    entered_number_sqrt = squareRootCalculator(entered_number);
     cout << " The square root of " << entered_number << " is " << entered_number_sqrt << endl;
   } 
   catch (const char * exeption_message) {
@@ -34,7 +34,7 @@ int main() {
   return 0;
 }
 
-int squareRoot(int entered_number){
+int squareRootCalculator(int entered_number){
   if (entered_number <= 0 || sqrt(entered_number) != static_cast<int>(sqrt(entered_number))) {
     throw " The number you entered is not a perfect square.";
   }
