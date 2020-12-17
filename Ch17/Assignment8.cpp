@@ -90,6 +90,7 @@ int main() {
   do {
     cout << "1: to insert a value into the linked list . " << endl
          << "2: to exit the program . " << endl;
+    cout << "Please enter the number of your selection : " ;        
     cin >> user_input;
     if(cin.fail()) {
         cin.clear();
@@ -116,6 +117,9 @@ int main() {
         break;
       case 2:
         cout << "Good Bye :) " << endl;
+
+      default :
+        cout << "Invalid option selected , Please Try again . " << endl;  
     }
   
   } while (user_input != 2);
