@@ -1,4 +1,5 @@
 //  Kiarash Hesampour CS216
+//  This Program has a function for removing an item in a linked list at a specified position if it exists .
 
 #include <iostream>
 #include <fstream>
@@ -29,7 +30,6 @@ class LinkedList {
       head = NULL;
     }
 };
-
 
 void LinkedList::add(double x) {
   if (head == NULL) {
@@ -114,12 +114,10 @@ void LinkedList::remove(int position) {
     cout << endl;
 }
 
-
 int main() {
   LinkedList linkedList;
-  int position, user_input;
+  int  user_input = 0 , position;
   double x;
-
 
   linkedList.add(10.1);
   linkedList.add(20.2);
@@ -128,8 +126,8 @@ int main() {
   linkedList.add(50.5);
 
   do {
-    cout << "1: to insert a number into the linked list . " << endl
-         << "2: to remove a number from the linked list . " << endl
+    cout << "1: to insert a value into the linked list . " << endl
+         << "2: to remove a value from the linked list . " << endl
          << "3: to exit the program . " << endl;
     cin >> user_input;
     switch (user_input) {

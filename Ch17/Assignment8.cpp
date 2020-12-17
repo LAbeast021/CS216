@@ -1,4 +1,5 @@
 //  Kiarash Hesampour CS216
+//  This Program has a function for inserting a new item to a linked list at a specified position
 
 #include <iostream>
 #include <fstream>
@@ -29,7 +30,6 @@ class LinkedList {
     }
 };
 
-
 void LinkedList::add(double x) {
   if (head == NULL) {
     head = new ListNode(x);
@@ -38,8 +38,6 @@ void LinkedList::add(double x) {
     head = new ListNode(x, nodePointer);
   }
 }
-
-
 
 void LinkedList::insert(double num, int position) {
   ListNode *newNode;
@@ -77,12 +75,11 @@ void LinkedList::insert(double num, int position) {
   cout << endl;
 }
 
-
 int main() {
   LinkedList linkedList;
-  int inp = 0;
+  int user_input = 0, position;
   double x;
-  int position;
+
 
   linkedList.add(10.1);
   linkedList.add(20.2);
@@ -91,15 +88,15 @@ int main() {
   linkedList.add(50.5);
 
   do {
-    cout << "1: to insert a number into the linked list . " << endl
+    cout << "1: to insert a value into the linked list . " << endl
          << "2: to exit the program . " << endl;
-    cin >> inp;
+    cin >> user_input;
     if(cin.fail()) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << "Input error, Please Try again." << endl;
     }
-    switch (inp) {
+    switch (user_input) {
       case 1:
         cout << "Please enter a value you wish to add : " << endl;
         cin >> x;
@@ -121,7 +118,7 @@ int main() {
         cout << "Good Bye :) " << endl;
     }
   
-  } while (inp != 2);
+  } while (user_input != 2);
 
   return 0;
 }
