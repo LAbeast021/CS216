@@ -80,12 +80,13 @@ int main() {
   int user_input = 0, position;
   double x;
 
-
-  linkedList.add(10.1);
-  linkedList.add(20.2);
-  linkedList.add(30.3);
-  linkedList.add(40.4);
-  linkedList.add(50.5);
+  linkedList.add(12.2);
+  linkedList.add(10.9);
+  linkedList.add(99.5);
+  linkedList.add(21.1);
+  linkedList.add(30.0);
+  linkedList.add(44.4);
+  linkedList.add(69.8);
 
   do {
     cout << "1: to insert a value into the linked list . " << endl
