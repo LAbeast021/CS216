@@ -91,19 +91,34 @@ int main() {
   linkedList.add(50.5);
 
   do {
-    cout << "\n\n1: to insert a number into the linked list\n" << 
-            "2: to exit the program\n" << endl;
+    cout << "1: to insert a number into the linked list . " << endl
+         << "2: to exit the program . " << endl;
     cin >> inp;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+    }
     switch (inp) {
       case 1:
-        cout << "Please enter a number: ";
+        cout << "Please enter a value you wish to add : " << endl;
         cin >> x;
-        cout << "\nPlease enter a position to insert the number you entered: ";
+        if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+        }
+        cout << "Please enter a position to insert the value you entered : " << endl;
         cin >> position;
+        if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+        }
         linkedList.insert(x, position);
         break;
       case 2:
-        cout << "Quitting the program..." << endl;
+        cout << "Good Bye :) " << endl;
     }
   
   } while (inp != 2);

@@ -34,7 +34,8 @@ class LinkedList {
 void LinkedList::add(double x) {
   if (head == NULL) {
     head = new ListNode(x);
-  } else {
+  } 
+  else {
     ListNode *nodePointer = head;
     head = new ListNode(x, nodePointer);
   }
@@ -54,7 +55,8 @@ void LinkedList::insert(double num, int position) {
   if (position == 0) {
     newNode->next = head;
     head = newNode;
-  } else {
+  } 
+  else {
     while(nodePointer != NULL && i < position){
       previousNode = nodePointer;
       nodePointer = nodePointer->next;
@@ -63,7 +65,8 @@ void LinkedList::insert(double num, int position) {
     if(nodePointer == NULL) {
       newNode->next = nodePointer;
       previousNode->next = newNode;
-    } else {
+    } 
+    else {
       newNode->next = nodePointer;
       previousNode->next = newNode;
     }
@@ -82,7 +85,7 @@ void LinkedList::remove(int position) {
   int i = 0;
 
   if (!head) {
-    cout << "\nThe list is empty" << endl;
+    cout << "OOPs ! The list is empty" << endl;
     return;
   }
   nodePointer = head;
@@ -90,7 +93,8 @@ void LinkedList::remove(int position) {
     nodePointer = head->next;
     delete head;
     head = nodePointer;
-  } else {
+  } 
+  else {
     while (nodePointer != NULL && i < position) {
       previousNode = nodePointer;
       nodePointer = nodePointer->next;
@@ -99,7 +103,7 @@ void LinkedList::remove(int position) {
       previousNode->next = nodePointer->next;
       delete nodePointer;
     } else {
-      cout << endl << "ERROR 404 NOT FOUND\nFailed to delete position: " << position << endl;
+      cout <<  "OOPs ! Not Found . Failed to delete node at position : " << position << endl;
     }
     nodePointer = head;
   }
@@ -113,9 +117,9 @@ void LinkedList::remove(int position) {
 
 int main() {
   LinkedList linkedList;
-  int position;
+  int position, user_input;
   double x;
-  int inp;
+
 
   linkedList.add(10.1);
   linkedList.add(20.2);
@@ -124,27 +128,42 @@ int main() {
   linkedList.add(50.5);
 
   do {
-    cout << "\n\n1: to insert a number into the linked list\n" <<  
-            "2: to remove a number from the linked list\n" << 
-            "3: to exit the program\n" << endl;
-    cin >> inp;
-    switch (inp) {
+    cout << "1: to insert a number into the linked list . " << endl
+         << "2: to remove a number from the linked list . " << endl
+         << "3: to exit the program . " << endl;
+    cin >> user_input;
+    switch (user_input) {
       case 1:
-        cout << "Please enter a number: ";
+        cout << "Please enter a value you wish to add : ";
         cin >> x;
-        cout << "\nPlease enter a position to insert the number you entered: ";
+        if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+        }
+        cout << "Please enter a position to insert the value you entered : " << endl;
         cin >> position;
+        if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+        }
         linkedList.insert(x, position);
         break;
       case 2:
-        cout << "Please enter a position to remove: ";
+        cout << "Please enter a position you wish to remove: ";
         cin >> position;
+        if(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Input error, Please Try again." << endl;
+        }
         linkedList.remove(position);
         break;
       case 3:
-        cout << "Quitting the program..." << endl;
+        cout << "Good Bye :) " << endl;
     }
-  } while (inp != 3);
+  } while (user_input != 3);
 
   return 0;
 }
